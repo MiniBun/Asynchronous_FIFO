@@ -14,7 +14,9 @@ module asynFIFO #(
     input write_en,
     input read_en,
     input [data_size-1:0] write_data,
-    output [data_size-1:0] read_data
+    output [data_size-1:0] read_data,
+    output fifo_empty,
+    output fifo_full
 );
 
 wire [addr_size-1:0] write_ptr_binary;
@@ -25,9 +27,6 @@ wire [addr_size:0] read_ptr_gray;
 
 wire [addr_size:0] write_ptr_gray_sync;
 wire [addr_size:0] read_ptr_gray_sync;
-
-wire fifo_empty;
-wire fifo_full;
 
 ram #(
     .data_size(data_size),
