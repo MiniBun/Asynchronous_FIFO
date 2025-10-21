@@ -10,7 +10,7 @@ module tb_asynFIFO;
 
     parameter data_size = 8;
     parameter addr_size = 3;
-    parameter depth = {addr_size{1'b1}}+1;
+    parameter depth = 1<<addr_size;
 
     reg read_clk;
     reg write_clk;
